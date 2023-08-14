@@ -1,0 +1,98 @@
+<!-- Make a Simple Calculator -->
+<html>
+	<head>
+		<title>Calculator</title>
+		<meta name = "viewport" content="width=device-width initial-scale=1.0">
+	</head>
+	<style>
+		button {
+			padding: 10px;
+			border-radius: 20px;
+			border-width: 3px;
+			width: 90px;
+			height: 70px;
+			background-color: bisque;
+			text-align: center;
+			font-size: 25px;
+		}
+
+		textarea {
+			font-size: 25px;
+			align-self: center;
+			border-radius: 7px;
+			border-width: 5px;
+			width: 400px;
+			height: 90px;
+			background-color: bisque;
+		}
+
+		.grid-container {
+			align-self: center;
+			grid-gap: 30px;
+			display: grid;
+			grid-template-columns: auto auto auto auto;
+			padding: 10px;
+			align-content: center;
+		}
+
+		#object {
+			align-self: center;
+		}
+	</style>
+	<script>
+		var total = 0;
+
+		function generateExpression(element) {
+			document.getElementById('TextBar').value += element.value;
+		}
+
+		function evaluateExpression() {
+			document.getElementById('TextBar').value = eval(document.getElementById('TextBar').value);
+		}
+
+		function clearExpression() {
+			console.log(document.getElementById('TextBar').value);
+			document.getElementById('TextBar').value = "";
+		}
+
+		function createButtons() {
+			var textBar = document.createElement("textarea");
+			textBar.type = "text";
+			textBar.placeholder = "Enter expression";
+			textBar.id = "TextBar";
+			document.getElementById('expressionBar').appendChild(textBar);
+			var counter = 0;
+			var buttonValues = ["8", "9", "+", "-", "4", "5", "6", "7", "0", "1", "2", "3", "C", "*", "=", "/"]
+			while (counter < 16) {
+				var button = document.createElement("button");
+				var value = document.createTextNode(buttonValues[counter]);
+				button.appendChild(value);
+				button.value = buttonValues[counter];
+				if (buttonValues[counter] == "C") {
+					button.addEventListener("click", clearExpression);
+				}
+				else if(buttonValues[counter] == "=") {
+					button.addEventListener("click", evaluateExpression)
+				}
+				else {
+					button.addEventListener("click", function () {
+						generateExpression(this);
+					});
+				}
+				document.getElementById('calculator').appendChild(button);
+				counter++;
+			}
+		}
+	</script>
+	<body onload="createButtons()" bgcolor="lightgrey">
+		<!-- id="object"
+		 -->
+		<div id="object">
+			<center>
+				<h1>Simple Calculator</h1>
+				<div id="expressionBar"></div><br>
+				<div class="grid-container" id="calculator"></div>
+			</center>
+		</div>
+	</body>
+</html>

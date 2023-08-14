@@ -1,0 +1,28 @@
+<!-- Enter names and store into different storeage objects -->
+<html>
+	<head>
+		<title>
+			NamesForm-Storage Objects
+		</title>
+		<style>
+			input {
+				border-radius: 7px;
+				width: 200px;
+				background-color: lightpink;
+			}
+			button {
+				border-radius: 5px;
+			}
+		</style>
+		<script src="SessionStorage.js"></script>
+	</head>
+	<body>
+		<center>
+			<h3>Enter the names for storing into a storage object</h3>
+			<input type="text" placeholder="Enter a name" id="name">
+			<textarea readonly id="data"></textarea><br><br>
+			<button onclick="saveNames()">Save</button>
+			<button onclick="showNames()">Show</button>
+		</center>
+	</body>
+</html>

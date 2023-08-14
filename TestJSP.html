@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script>
+		function getDetails() {
+			var dataUrl= "http://138.68.140.83:8080/Prudhvi/getDetails.jsp?itemID=" + $('#itemID').val();
+			$.ajax({
+				url: dataUrl,
+				type: 'GET',
+				success: function(responce) {
+					$('#data').html(responce);
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="itemID">
+	<button onclick="getDetails()">Get Details</button>
+	<div id="data"></div>
+</body>
+</html>

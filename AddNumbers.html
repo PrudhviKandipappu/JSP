@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title>
+			Add the numbers
+		</title>
+		<script>
+		var total;
+			function showTotal() {
+				total = parseInt(document.getElementById('number1').value) + parseInt(document.getElementById('number2').value);
+				document.getElementById('total').innerText = "Total: " + total;
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="number1" placeholder = "Enter first number">
+		<input type="text" id="number2" placeholder = "Enter second number">
+		<button onclick="showTotal()">Add</button>
+		<div id="total"></div>
+	</body>
+</html>
+

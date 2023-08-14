@@ -1,0 +1,12 @@
+<!-- Make a Simple Calculator -->
+<html>
+	<head>
+		<title>Simple Calculator</title>
+	</head>
+	<script>
+		function calculate(
+	</script>
+	<body>
+		<input  
+	</body>
+</html>
